@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Category Icons/Marketplace/More/Color</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.0001 0 13.9141 0 13.9141 13.9136 0.0001 13.9136"></polygon>
+        <polygon id="path-3" points="0 0.0859 13.9136 0.0859 13.9136 13.9999 0 13.9999"></polygon>
+        <polygon id="path-5" points="0.0859 0.0864 13.9999 0.0864 13.9999 14 0.0859 14"></polygon>
+    </defs>
+    <g id="Category-Icons/Marketplace/More/Color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="more_color-copy">
+            <rect id="Rectangle-2" x="0" y="0" width="40" height="40"></rect>
+            <g id="Page-1" transform="translate(4.000000, 4.000000)">
+                <g id="Group-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M13.9141,3.1826 C13.5341,1.3706 11.9201,-0.0004 10.0001,-0.0004 L4.0001,-0.0004 C1.8001,-0.0004 0.0001,1.7996 0.0001,3.9996 L0.0001,9.9996 C0.0001,11.9196 1.3721,13.5346 3.1831,13.9136 C4.0731,8.4096 8.4091,4.0726 13.9141,3.1826" id="Fill-1" fill="#00AC47" mask="url(#mask-2)"></path>
+                </g>
+                <path d="M32,10 L32,4 C32,1.8 30.2,0 28,0 L22,0 C20.08,0 18.466,1.371 18.086,3.183 C23.591,4.072 27.927,8.409 28.817,13.914 C30.628,13.534 32,11.92 32,10" id="Fill-4" fill="#00AC47"></path>
+                <g id="Group-8" transform="translate(0.000000, 18.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Clip-7"></g>
+                    <path d="M3.1826,0.0859 C1.3716,0.4659 -0.0004,2.0799 -0.0004,3.9999 L-0.0004,9.9999 C-0.0004,12.1999 1.7996,13.9999 3.9996,13.9999 L9.9996,13.9999 C11.9196,13.9999 13.5336,12.6289 13.9136,10.8169 C8.4096,9.9279 4.0726,5.5909 3.1826,0.0859" id="Fill-6" fill="#00AC47" mask="url(#mask-4)"></path>
+                </g>
+                <g id="Group-11" transform="translate(18.000000, 18.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Clip-10"></g>
+                    <path d="M0.0859,10.8174 C0.4659,12.6294 2.0799,14.0004 3.9999,14.0004 L9.9999,14.0004 C12.1999,14.0004 13.9999,12.2004 13.9999,10.0004 L13.9999,4.0004 C13.9999,2.0804 12.6279,0.4654 10.8169,0.0864 C9.9269,5.5904 5.5909,9.9274 0.0859,10.8174" id="Fill-9" fill="#00AC47" mask="url(#mask-6)"></path>
+                </g>
+                <path d="M10,14 C12.2,14 14,12.2 14,10 L14,4 C14,3.72 13.97,3.447 13.914,3.183 C8.409,4.072 4.073,8.409 3.183,13.914 C3.447,13.97 3.72,14 4,14 L10,14 Z" id="Fill-12" fill="#53DC53"></path>
+                <path d="M18.0859,3.1826 C18.0299,3.4476 17.9999,3.7196 17.9999,3.9996 L17.9999,9.9996 C17.9999,12.2006 19.7999,13.9996 21.9999,13.9996 L27.9999,13.9996 C28.2799,13.9996 28.5529,13.9696 28.8169,13.9136 C27.9269,8.4096 23.5909,4.0726 18.0859,3.1826" id="Fill-14" fill="#53DC53"></path>
+                <path d="M14,22 C14,19.8 12.2,18 10,18 L4,18 C3.72,18 3.447,18.03 3.183,18.086 C4.073,23.591 8.409,27.928 13.914,28.817 C13.97,28.553 14,28.28 14,28 L14,22 Z" id="Fill-16" fill="#53DC53"></path>
+                <path d="M22,18 C19.8,18 18,19.8 18,22 L18,28 C18,28.28 18.03,28.553 18.086,28.817 C23.591,27.928 27.927,23.591 28.817,18.086 C28.553,18.03 28.28,18 28,18 L22,18 Z" id="Fill-18" fill="#53DC53"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @responsive {
+      .scrolling-touch {
+        -webkit-overflow-scrolling: touch;
+      }
+      .scrolling-auto {
+        -webkit-overflow-scrolling: auto;
+      }
+    }
+  }
+
+.screen-margin {
+    @apply xxl:mx-xxl xl:mx-xl lg:mx-lg md:mx-md sm:mx-sm
+}
+
+.screen-width {
+    @apply xxl:w-full xl:w-full lg:w-full md:w-lg sm:w-lg text-center
+}
+
+.middle-category {
+    @apply mb-2 h-12 md:h-8 text-center
+}
+
+.bg-middle-category {
+    @apply rounded p-4 sm:p-2 flex flex-col justify-center items-center sm:justify-start cursor-pointer font-normal text-gray-900
+}
+
+.counter {
+    @apply p-2 rounded border-4 border-primary font-bold mx-2 sm:p-1 sm:border-2 sm:font-semibold
+}
+
+.h4-footer {
+    @apply font-bold text-gray-800 text-base
+}
+
+ul>li {
+    @apply mb-2
+}
+
+ul>li>p {
+    @apply text-gray-400 cursor-pointer
+}
+
+ul>li>p:hover {
+    @apply text-primary
+}
+
+a:hover {
+    @apply text-primary
+}
+
+input {
+    @apply cursor-pointer w-full px-3 py-2 border rounded outline-none focus:outline-none focus:border-primary
+}
+
+.footer-icon {
+    @apply p-3 rounded-full text-white mr-2 sm:m-1 md:m-2 lg:m-2
+}
