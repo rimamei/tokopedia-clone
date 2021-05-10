@@ -6,7 +6,7 @@ const Button = (props) => {
   return (
     <div>
       <button
-        className={`font-medium outline-none px-3 py-1 rounded  cursor-pointer ${outerClassName}`} {...rest}
+        className={`font-medium outline-none px-3 py-1 rounded cursor-pointer ${outerClassName}`} {...rest}
         type="button"
       >
         {props.children}

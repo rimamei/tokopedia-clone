@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'slider': 'slide 3s linear infinite',
+        slider: "slide 2s ease out infinite",
       },
       backgroundColor: {
         facebook: "#3B5998",
@@ -21,6 +21,10 @@ module.exports = {
       },
       boxShadow: {
         primary: "2px 1px 1px 2px rgba(66, 181, 73, 0.7)",
+      },
+      flex: {
+        "col-1": '1 1 25rem',
+        "col-2": '2 1 50rem',
       },
       fontFamily: {
         body: "Roboto",
@@ -40,15 +44,14 @@ module.exports = {
         "30px": "30px",
       },
       keyframes: {
-        '0%': {
-          'transform': 'translateY(100%)'
+        slide: {
+          "20%": {
+            transform: "translateY(100%)",
+          },
+          "50%": {
+            transform: "translateY(0%)",
+          }
         },
-        '50%': {
-          'transform': 'translateY(50%)',
-        },
-        '100%': {
-          'transform': 'translateY(0)'
-        }
       },
       margin: {
         sm: "8px",
@@ -64,6 +67,12 @@ module.exports = {
         "3/4": "75%",
         full: "100%",
         "480px": "480px",
+      },
+      minWidth: {
+        '1': '1rem',
+        '2': '2rem',
+        '3': '3rem',
+        '4': '4rem',
       },
       outline: {
         primary: "#42B549",
@@ -81,7 +90,7 @@ module.exports = {
       textColor: {
         facebook: "#3B5998",
         primary: "#42B549",
-      },   
+      },
       width: {
         xxl: "1535px",
         xl: "1279px",
@@ -104,7 +113,7 @@ module.exports = {
       fontWeight: ["hover", "focus"],
       outline: ["hover", "focus"],
       ringColor: ["hover", "active", "focus"],
-      translate: ['active', 'group-hover'],
+      translate: ["active", "group-hover"],
     },
   },
   plugins: [],

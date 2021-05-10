@@ -2,9 +2,10 @@ import React from "react";
 import * as Hi from "react-icons/hi";
 import { Button, Card, Counter } from "parts";
 import { flash_sale } from "assets";
-import data from "json/data";
 
-const FlashSale = () => {
+const FlashSale = (props) => {
+  const { data } = props;
+  
   return (
     <section className="w-full mb-10 pb-12 border-b border-gray-200">
       <div className="flex items-end justify-between mb-5">
@@ -34,8 +35,8 @@ const FlashSale = () => {
         </div>
         <div className="grid grid-cols-6 gap-8 z-30 scrolling-touch overflow-x-auto sm:auto-cols-fr sm:grid-flow-cols">
           <div className="h-300px"></div>
-          {data.items.slice(0, 5).map((item) => (
-            <Card item={item} />
+          {data.slice(0, 5).map((item) => (
+            <Card key={item._id} item={item} />
           ))}
         </div>
       </div>

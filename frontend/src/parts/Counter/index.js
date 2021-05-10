@@ -13,9 +13,7 @@ const Counter = () => {
 
     interval = setInterval(() => {
       const now = new Date().getTime();
-      console.log("now: ", now);
       const distance = countdownDate - now;
-      console.log("distance: ", distance);
 
       // const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
@@ -49,7 +47,7 @@ const Counter = () => {
   }, []);
 
   return (
-    <div className="flex text-2xl sm:text-xl md:text-xl items-center font-bold">
+    <div className="flex text-2xl items-center font-bold">
       <div className="counter">{timerHours}</div>
       <div>:</div>
       <div className="counter">{timerMinutes}</div>

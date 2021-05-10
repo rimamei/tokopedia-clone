@@ -18,7 +18,7 @@ const Trending = (props) => {
       setRank((count) => {
         return count + 1 > trending.length? 1 : count + 1;
       });
-    }, 3000);
+    }, 2000);
     return () => {
       clearInterval(intervalTrending);
     }
@@ -54,7 +54,7 @@ const Trending = (props) => {
               {trending.map((item, index) => (
                 <div className="flex justify-between">
                   <Link
-                    key={index}
+                    key={item._id}
                     className="text-left text-gray-700 hover:font-semibold hover:text-gray-700"
                   >
                     <span className="font-bold text-gray-500">{index + 1}</span>

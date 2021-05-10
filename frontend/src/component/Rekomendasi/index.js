@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button, Card, Brand } from "parts";
-import data from "json/data";
+import { Button, Card } from "parts";
 
-const Rekomendasi = ({ title }) => {
+const Rekomendasi = (props) => {
+  console.log(`Rekomendasi: ${props}`)
+  const { data } = props;
   const [limit, setLimit] = useState(6);
 
   const loadMore = (e) => {
@@ -14,11 +15,11 @@ const Rekomendasi = ({ title }) => {
     <section className="flex flex-col">
       <div className="w-full pb-12">
         <div className="mb-5">
-          <h1 className="text-3xl font-bold">{title}</h1>
+          <h1 className="text-3xl font-bold">{props.children}</h1>
         </div>
         <div className="mt-10 grid grid-cols-6 gap-8">
-          {data.items.slice(0, limit).map((item) => (
-            <Card item={item} />
+          {data.slice(0, limit).map((item) => (
+            <Card key={item._id} item={item} />
           ))}
         </div>
       </div>

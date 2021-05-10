@@ -2,13 +2,14 @@ import * as Fa from "react-icons/fa";
 import number from "utils/formatNumber";
 import React, { useState } from "react";
 import { official_store, star_store } from "assets";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const { item } = props;
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   return (
-    <>
+    <Link to={`/product/${item._id}`}>
       <figure
         onMouseOver={() => setIsMouseOver(true)}
         onMouseLeave={() => setIsMouseOver(false)}
@@ -55,7 +56,7 @@ const Card = (props) => {
           </div>
         </figcaption>
       </figure>
-    </>
+    </Link>
   );
 };
 

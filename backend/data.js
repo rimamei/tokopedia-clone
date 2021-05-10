@@ -1,23 +1,23 @@
 const data = {
   banner: [
     {
-      _id: 1,
+      _id: 12,
       image: "/images/Banner/Banner-1.jpg"
     },
     {
-      _id: 2,
+      _id: 13,
       image: "/images/Banner/Banner-2.jpg"
     },
     {
-      _id: 3,
+      _id: 14,
       image: "/images/Banner/Banner-3.jpg"
     },
     {
-      _id: 4,
+      _id: 15,
       image: "/images/Banner/Banner-4.jpg"
     },
     {
-      _id: 5,
+      _id: 16,
       image: "/images/Banner/Banner-5.jpg"
     },
   ],
