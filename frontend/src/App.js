@@ -1,9 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header, Footer } from "component";
-import { CartScreen, HomeScreen, SignUpScreen, LoginScreen, ProductScreen } from "pages";
+import {
+  CartScreen,
+  HomeScreen,
+  SignUpScreen,
+  LoginScreen,
+  ProductScreen,
+} from "pages";
 
 const App = () => {
-
   return (
     <div className="antialiased font-body w-full overflow-hidden">
       <Router>

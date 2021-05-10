@@ -1,48 +1,43 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Banner, Rekomendasi, FlashSale, MiddleCategory, WIB } from "component";
 import { Loading, MessageBox } from "parts";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "store/actions/ProductActions";
+import { listBanner } from "store/actions/BannerActions";
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
-  const [banner, setBanner] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const bannerList = useSelector((state) => state.bannerList);
+  const productList = useSelector((state) => state.productList);
+  const { loading: loadingBanner, error: bannerError, banner } = bannerList;
+  const { loading, error, products } = productList;
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const [data1, data2] = await axios.all([
-          axios.get("/api/products"), 
-          axios.get("/api/banner")
-        ]);
-        setLoading(false);
-        setProducts(data1.data);
-        setBanner(data2.data);
-        console.log(data1.data);
-        console.log(data2.data);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+    dispatch(listBanner());
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <main className="mt-40 lg:w-xl md:mx-5 mx-20 mb-20">
-      {loading ? (
+      {loadingBanner ? (
         <Loading />
+      ) : bannerError ? (
+        <MessageBox>{error}</MessageBox>
+      ) : (
+        <Banner banner={banner.data} />
+      )}
+
+      <MiddleCategory />
+
+      {loading ? (
+        <Loading>Processing</Loading>
       ) : error ? (
         <MessageBox>{error}</MessageBox>
       ) : (
         <div>
-          <Banner banner={banner} />
-          <MiddleCategory />
-          <FlashSale data={products} />
-          <WIB data={products}>Produk WIB</WIB>
-          <Rekomendasi data={products}>Rekomendasi</Rekomendasi>
+          <FlashSale data={products.data} />
+          <WIB data={products.data}>Produk WIB</WIB>
+          <Rekomendasi data={products.data}>Rekomendasi</Rekomendasi>
         </div>
       )}
     </main>
