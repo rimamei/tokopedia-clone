@@ -4,20 +4,31 @@ import * as Fa from "react-icons/fa";
 import { Button, Loading, MessageBox } from "parts";
 import { useDispatch, useSelector } from "react-redux";
 import { detailProduct } from "store/actions/ProductActions";
+import { addToCart } from "store/actions/CartActions";
+import { useHistory, withRouter } from "react-router";
 
 const ProductScreen = (props) => {
-  const dispatch = useDispatch();
   const productId = props.match.params.id;
+  const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
+  const history = useHistory();
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-
-  const [input, setInput] = useState(0);
 
   useEffect(() => {
     document.title = "Tokopedia Clone";
     window.scrollTo(0, 0);
     dispatch(detailProduct(productId));
   }, [dispatch, productId]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(productId, qty));
+  };
+
+  const directToCartHandler = () => {
+    dispatch(addToCart(productId, qty));
+    history.push('/cart');
+  };
 
   return (
     <div className="mt-40 mb-20 mx-20">
@@ -62,7 +73,7 @@ const ProductScreen = (props) => {
           </div>
           <div className="flex-col-1 m-5 p-5 border shadow rounded overflow-hidden">
             <p className="font-bold">Jumlah yang dibeli</p>
-            <div className="flex items-center mb-5">
+            <div className="flex items-center">
               <Button
                 className={`p-1 rounded-full ${
                   product.stock > 0
@@ -70,8 +81,8 @@ const ProductScreen = (props) => {
                     : "bg-gray-200 text-gray-500"
                 }`}
                 onClick={() =>
-                  setInput((input) => {
-                    return input - 1 <= 0 ? 0 : input - 1;
+                  setQty((qty) => {
+                    return qty - 1 <= 0 ? 0 : qty - 1;
                   })
                 }
               >
@@ -81,8 +92,8 @@ const ProductScreen = (props) => {
                 type="number"
                 min="0"
                 max={product.stock}
-                value={input > product.stock ? product.stock : input}
-                onChange={(e) => setInput(e.target.value)}
+                value={qty > product.stock ? product.stock : qty}
+                onChange={(e) => setQty(e.target.value)}
                 className="min-w-3 w-10 outline-none border-0 border-b rounded-none"
               />
               <Button
@@ -92,10 +103,8 @@ const ProductScreen = (props) => {
                     : "bg-gray-200 text-gray-500"
                 }`}
                 onClick={() =>
-                  setInput((input) => {
-                    return input + 1 === product.stock
-                      ? product.stock
-                      : input + 1;
+                  setQty((qty) => {
+                    return qty + 1 === product.stock ? product.stock : qty + 1;
                   })
                 }
               >
@@ -110,15 +119,19 @@ const ProductScreen = (props) => {
                 <p className="font-semibold text-red-500">&emsp;Produk Habis</p>
               )}
             </div>
+              {qty > product.stock && (
+                <p className="text-red-500">Maks. Pembelian {product.stock}</p>
+              )}
             <p className="text-gray-500 mb-5">
               Subtotal &nbsp;{" "}
               <span className="text-xl font-semibold text-black">
-                {input > product.stock
+                {qty > product.stock
                   ? number(product.price * product.stock)
-                  : number(product.price * input)}
+                  : number(product.price * qty)}
               </span>
             </p>
             <Button
+              onClick={addToCartHandler}
               outerClassName={`flex items-center justify-center  my-2 w-full py-2 ${
                 product.stock > 0
                   ? "bg-primary text-white"
@@ -129,6 +142,7 @@ const ProductScreen = (props) => {
               &emsp;Keranjang
             </Button>
             <Button
+              onClick={directToCartHandler}
               outerClassName={`border w-full py-2 ${
                 product.stock > 0
                   ? "text-primary border-primary"
@@ -144,4 +158,4 @@ const ProductScreen = (props) => {
   );
 };
 
-export default ProductScreen;
+export default withRouter(ProductScreen);

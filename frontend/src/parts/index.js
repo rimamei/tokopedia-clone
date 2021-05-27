@@ -1,13 +1,9 @@
 export { default as Category } from "parts/Category";
 export { default as Search } from "parts/Search";
-export { default as IconText } from "parts/IconText";
 export { default as Trending } from "parts/Trending";
-export { default as Cart } from "parts/Cart";
 export { default as Language } from "parts/Language";
-export { default as MiddleCategory } from "component/MiddleCategory";
 export { default as Card } from "parts/Card";
 export { default as Counter } from "parts/Counter";
 export { default as Button } from "parts/Button";
-export { default as TopHeader } from "parts/TopHeader";
 export { default as Loading } from "parts/Loading";
 export { default as MessageBox } from "parts/MessageBox";

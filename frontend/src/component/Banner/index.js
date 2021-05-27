@@ -31,7 +31,7 @@ const Banner = (props) => {
   return (
     <>
       {banner.slice(currentSlide - 1, currentSlide).map((item) => (
-        <div>
+        <div key={item._id}>
           <div className="absolute flex justify-between">
             <div className="bg-white rounded-full p-1 shadow-md">
               <Io.IoIosArrowBack

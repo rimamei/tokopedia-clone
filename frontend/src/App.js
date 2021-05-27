@@ -7,12 +7,16 @@ import {
   LoginScreen,
   ProductScreen,
 } from "pages";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   return (
     <div className="antialiased font-body w-full overflow-hidden">
       <Router>
-        <Header />
+        <Header cart={cartItems} />
         <Switch>
           <Route path="/" component={HomeScreen} exact />
           <Route path="/cart" component={CartScreen} />

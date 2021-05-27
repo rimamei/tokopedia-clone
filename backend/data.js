@@ -83,7 +83,7 @@ const data = {
       number: 21 
     },
   ],
-  items: [
+  products: [
     {
       _id: "1",
       sold: 234,
@@ -111,7 +111,7 @@ const data = {
         },
       ],
       price: 75000,
-      brand: "Teh Bubuk",
+      seller: "Teh Bubuk",
       isOfficialStore: false,
       rating: 4.9,
       numReviews: 270,
@@ -145,7 +145,7 @@ const data = {
         },
       ],
       price: 258800,
-      brand: "JeteIndonesia",
+      seller: "JeteIndonesia",
       isOfficialStore: true,
       rating: 4.7,
       numReviews: 1625,
@@ -178,7 +178,7 @@ const data = {
         },
       ],
       price: 39166,
-      brand: "Lipton",
+      seller: "Lipton",
       isOfficialStore: false,
       rating: 4.8,
       numReviews: 637,
@@ -208,7 +208,7 @@ const data = {
         }
       ],
       price: 5798000,
-      brand: "Samudera Sports",
+      seller: "Samudera Sports",
       isOfficialStore: false,
       rating: 4.9,
       numReviews: 125,
@@ -237,7 +237,7 @@ const data = {
         }
       ],
       price: 50000,
-      brand: "Enesis Official Store",
+      seller: "Enesis Official Store",
       isOfficialStore: true,
       rating: 4.9,
       numReviews: 1300,
@@ -275,7 +275,7 @@ const data = {
         },
       ],
       price: 233752,
-      brand: "Spigen Official",
+      seller: "Spigen Official",
       isOfficialStore: true,
       rating: 4.9,
       numReviews: 101,
@@ -316,7 +316,7 @@ const data = {
         },
       ],
       price: 98000,
-      brand: "Wulfi",
+      seller: "Wulfi",
       isOfficialStore: true,
       rating: 4.9,
       numReviews: 152,
@@ -345,7 +345,7 @@ const data = {
         }
       ],
       price: 275000,
-      brand: "Dharu Elfshop",
+      seller: "Dharu Elfshop",
       isOfficialStore: false,
       rating: 4.9,
       numReviews: 46,
@@ -383,7 +383,7 @@ const data = {
         }
       ],
       price: 79999,
-      brand: "MG Store 1990",
+      seller: "MG Store 1990",
       isOfficialStore: false,
       rating: 4.9,
       numReviews: 768,
@@ -420,7 +420,7 @@ const data = {
         },
       ],
       price: 33150,
-      brand: "Mendekor",
+      seller: "Mendekor",
       isOfficialStore: false,
       rating: 4.8,
       numReviews: 46,

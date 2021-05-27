@@ -3,3 +3,4 @@ export {
   productListReducer,
   productDetailReducer,
 } from "store/reducer/ProductReducers";
+export { cartReducer } from "store/reducer/CartReducer";
