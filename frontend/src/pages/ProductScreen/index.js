@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { detailProduct } from "store/actions/ProductActions";
 import { addToCart } from "store/actions/CartActions";
 import { useHistory, withRouter } from "react-router";
+import Swal from "sweetalert2";
 
 const ProductScreen = (props) => {
   const productId = props.match.params.id;
@@ -13,21 +14,79 @@ const ProductScreen = (props) => {
   const [qty, setQty] = useState(1);
   const history = useHistory();
   const productDetails = useSelector((state) => state.productDetails);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    document.title = "Tokopedia Clone";
+    document.title = "Tokopedia Clone | Product Detail";
     window.scrollTo(0, 0);
     dispatch(detailProduct(productId));
   }, [dispatch, productId]);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(productId, qty));
+    const existItem = cartItems.find((x) => x.id === productId);
+    if (existItem) {
+      const prevQty =
+        cartItems[cartItems.findIndex((x) => x.id === productId)].qty;
+      if (prevQty + qty > product.stock) {
+        Swal.fire({
+          width: 400,
+          title: "Maaf, Kuantitas barang melebihi stok",
+          text: `Ada ${prevQty} barang di keranjangmu dan stok barang ini ${product.stock} buah`,
+          icon: "info",
+          showCancelButton: false,
+        });
+      } else {
+        Swal.fire({
+          width: 400,
+          text: `Selamat, ${qty} barang berhasil ditambahkan`,
+          icon: "success",
+          showCancelButton: false,
+        });
+        dispatch(addToCart(productId, qty));
+      }
+    } else {
+      Swal.fire({
+        width: 400,
+        text: `Selamat, ${qty} barang berhasil ditambahkan`,
+        icon: "success",
+        showCancelButton: false,
+      });
+      dispatch(addToCart(productId, qty));
+    }
   };
 
   const directToCartHandler = () => {
-    dispatch(addToCart(productId, qty));
-    history.push('/cart');
+    const existItem = cartItems.find((x) => x.id === productId);
+    if (existItem) {
+      if (
+        cartItems[cartItems.findIndex((x) => x.id === productId)].qty + qty >
+        product.stock
+      ) {
+        Swal.fire({
+          width: 400,
+          title: "Maaf, Kuantitas barang melebihi stok",
+          text: `Ada ${
+            cartItems[cartItems.findIndex((x) => x.id === productId)].qty
+          } barang di keranjangmu dan stok barang ini ${product.stock} buah`,
+          icon: "info",
+          showCancelButton: false,
+        });
+        history.push("/cart");
+      } else {
+        Swal.fire({
+          width: 400,
+          text: `Selamat, ${qty} barang berhasil ditambahkan`,
+          icon: "success",
+          showCancelButton: false,
+        });
+        dispatch(addToCart(productId, qty));
+        history.push("/cart");
+      }
+    } else {
+      dispatch(addToCart(productId, qty));
+      history.push("/cart");
+    }
   };
 
   return (
@@ -37,7 +96,7 @@ const ProductScreen = (props) => {
       ) : error ? (
         <MessageBox variant="danger" />
       ) : (
-        <div className="flex">
+        <div className="flex w-full lg:w-lg">
           <figure className="flex-col-1 m-5">
             <img
               className="rounded border w-full"
@@ -73,43 +132,41 @@ const ProductScreen = (props) => {
           </div>
           <div className="flex-col-1 m-5 p-5 border shadow rounded overflow-hidden">
             <p className="font-bold">Jumlah yang dibeli</p>
-            <div className="flex items-center">
-              <Button
-                className={`p-1 rounded-full ${
-                  product.stock > 0
-                    ? "text-white bg-red-500 "
-                    : "bg-gray-200 text-gray-500"
-                }`}
-                onClick={() =>
-                  setQty((qty) => {
-                    return qty - 1 <= 0 ? 0 : qty - 1;
-                  })
-                }
-              >
-                <Fa.FaMinus size={12} />
-              </Button>
+            <div className="flex items-center mb-2">
+              { qty <= 1 ? (
+                <Button className="p-1 rounded-full bg-gray-200 text-gray-500">
+                  <Fa.FaMinus size={12} />
+                </Button>
+              ) : (
+                <Button
+                  className="p-1 rounded-full text-white bg-red-500"
+                  onClick={() => setQty(qty - 1)}
+                >
+                  <Fa.FaMinus size={12} />
+                </Button>
+              )}
               <input
                 type="number"
-                min="0"
-                max={product.stock}
-                value={qty > product.stock ? product.stock : qty}
                 onChange={(e) => setQty(e.target.value)}
+                value={qty}
                 className="min-w-3 w-10 outline-none border-0 border-b rounded-none"
               />
-              <Button
-                className={`p-1 rounded-full ${
-                  product.stock > 0
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 text-gray-500"
-                }`}
-                onClick={() =>
-                  setQty((qty) => {
-                    return qty + 1 === product.stock ? product.stock : qty + 1;
-                  })
-                }
-              >
-                <Fa.FaPlus size={12} />
-              </Button>
+              {qty >= product.stock ? (
+                <Button className="p-1 rounded-full bg-gray-200 text-gray-500">
+                  <Fa.FaPlus size={12} />
+                </Button>
+              ) : (
+                <Button
+                  className={`p-1 rounded-full ${
+                    product.stock > 0
+                      ? "bg-primary text-white"
+                      : "bg-gray-200 text-gray-500"
+                  }`}
+                  onClick={() => setQty(qty + 1)}
+                >
+                  <Fa.FaPlus size={12} />
+                </Button>
+              )}
               {product.stock > 0 ? (
                 <>
                   <p className="text-gray-500">&emsp;Stok &nbsp;</p>
@@ -119,9 +176,12 @@ const ProductScreen = (props) => {
                 <p className="font-semibold text-red-500">&emsp;Produk Habis</p>
               )}
             </div>
-              {qty > product.stock && (
-                <p className="text-red-500">Maks. Pembelian {product.stock}</p>
-              )}
+            {qty > product.stock && product.stock !== 0 && (
+              <p className="text-red-500">Maks. Pembelian {product.stock}</p>
+            )}
+            {qty <= 0 && (
+              <p className="text-red-500">Min. Pembelian 1 barang</p>
+            )}
             <p className="text-gray-500 mb-5">
               Subtotal &nbsp;{" "}
               <span className="text-xl font-semibold text-black">
@@ -130,27 +190,40 @@ const ProductScreen = (props) => {
                   : number(product.price * qty)}
               </span>
             </p>
-            <Button
-              onClick={addToCartHandler}
-              outerClassName={`flex items-center justify-center  my-2 w-full py-2 ${
-                product.stock > 0
-                  ? "bg-primary text-white"
-                  : "bg-gray-200 text-gray-500"
-              }`}
-            >
-              <Fa.FaPlus />
-              &emsp;Keranjang
-            </Button>
-            <Button
-              onClick={directToCartHandler}
-              outerClassName={`border w-full py-2 ${
-                product.stock > 0
-                  ? "text-primary border-primary"
-                  : "border-gray-200 text-gray-500"
-              }`}
-            >
-              Beli Langsung
-            </Button>
+
+            {qty > product.stock || qty < 1 ? (
+              <>
+                <Button
+                  disabled
+                  outerClassName="flex items-center justify-center my-2 w-full py-2 bg-gray-200 text-gray-500"
+                >
+                  <Fa.FaPlus />
+                  &emsp;Keranjang
+                </Button>
+                <Button
+                  disabled
+                  outerClassName="border w-full py-2 text-gray-500 border-gray-500"
+                >
+                  Beli Langsung
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  onClick={addToCartHandler}
+                  outerClassName="flex items-center justify-center  my-2 w-full py-2 bg-primary text-white"
+                >
+                  <Fa.FaPlus />
+                  &emsp;Keranjang
+                </Button>
+                <Button
+                  onClick={directToCartHandler}
+                  outerClassName="border w-full py-2 text-primary border-primary"
+                >
+                  Beli Langsung
+                </Button>
+              </>
+            )}
           </div>
         </div>
       )}

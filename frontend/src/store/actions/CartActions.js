@@ -5,6 +5,7 @@ import {
   GET_QTY,
   DECREASE,
   INCREASE,
+  CART_REMOVE_ITEM,
 } from "store/constants/cartConstants";
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
@@ -27,40 +28,42 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const adjustCart = (productId, qty) => async (dispatch) => {
-  const { data } = await axios.get(`/api/products/${productId}`);
-  dispatch({
-    type: ADJUST_CART,
-    payload: {
-      id: data._id,
-      city: data.city,
-      name: data.name,
-      image: data.image[0].imageUrl,
-      isOfficialStore: data.isOfficialStore,
-      price: data.price,
-      stock: data.stock,
-      product: data.product,
-      seller: data.seller,
-      qty,
-    },
-  });
-};
+// export const adjustCart = (productId, qty) => async (dispatch, getState) => {
+//   console.log("action qty: ", qty)
+//   const { data } = await axios.get(`/api/products/${productId}`);
+//   dispatch({
+//     type: ADJUST_CART,
+//     payload: {
+//       id: data._id,
+//       city: data.city,
+//       name: data.name,
+//       image: data.image[0].imageUrl,
+//       isOfficialStore: data.isOfficialStore,
+//       price: data.price,
+//       stock: data.stock,
+//       product: data.product,
+//       seller: data.seller,
+//       qty,
+//     },
+//   });
+//   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+// };
 
-export const getQty = (productId) => async (dispatch) => {
-  console.log('Id: ', productId)
-  dispatch({ type: GET_QTY, payload: productId });
-};
+// export const increase = (item) => async (dispatch) => {
+//   console.log(item)
+//   dispatch({
+//     type: INCREASE,
+//     payload: item,
+//   });
+// };
 
-export const increase = (payload) => async (dispatch) => {
-  dispatch({
-    type: INCREASE,
-    payload,
-  });
-};
+// export const decrease = (payload) => async (dispatch) => {
+//   dispatch({
+//     type: DECREASE,
+//     payload,
+//   });
+// };
 
-export const decrease = (count) => async (dispatch) => {
-  dispatch({
-    type: DECREASE,
-    payload: count,
-  });
+export const removeFromCartHandler = (itemId) => (dispatch) => {
+  dispatch({ type: CART_REMOVE_ITEM, payload: itemId });
 };

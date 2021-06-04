@@ -20,7 +20,7 @@ const HomeScreen = () => {
   }, [dispatch]);
 
   return (
-    <main className="mt-40 lg:w-xl md:mx-5 mx-20 mb-20">
+    <main className="mt-40 lg:w-lg md:mx-5 mx-20 mb-20">
       {loadingBanner ? (
         <Loading />
       ) : bannerError ? (

@@ -1,24 +1,45 @@
 import React, { useState } from "react";
-import { official_store, star_store } from "assets";
+import { Link, useHistory } from "react-router-dom";
+// import { useDispatch } from "react-redux";
 import * as Ai from "react-icons/ai";
+// import * as Fa from "react-icons/fa";
 import number from "utils/formatNumber";
-import * as Fa from "react-icons/fa";
-import { addToCart } from "store/actions/CartActions";
+import { official_store, star_store } from "assets";
+// import { addToCart, adjustCart, increase } from "store/actions/CartActions";
 import { Button } from "parts";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 const CartItem = ({ item }) => {
-  const [input, setInput] = useState(item.qty);
-  const dispatch = useDispatch();
+  const history = useHistory();
+  // const [input, setInput] = useState(item.qty);
+  // const dispatch = useDispatch();
 
-  const onChangeHandler = (e) => {
-    if (e.target.value > item.stock) {
-      setInput(item.stock);
-    } else {
-      setInput(e.target.value);
-      dispatch(addToCart(item.id, e.target.value));
-    }
+  // const onChangeHandler = (e) => {
+  //     const qty = e.target.value;
+  //     const itemId = item.id
+  //     setInput(qty);
+  //     dispatch(adjustCart(itemId, qty));
+  // };
+
+  // const increaseHandler = (e) => {
+  //   if (input > item.stock) {
+  //     setInput(item.stock);
+  //   } else {
+  //     setInput(e.target.value);
+  //     dispatch(increase(item));
+  //   }
+  // };
+
+  // const decreaseHandler = (e) => {
+  //   if (input > 0) {
+  //     setInput(e.target.value);
+  //     dispatch(increase(item));
+  //   } else {
+  //     setInput(1);
+  //   }
+  // };
+
+  const removeFromCartHandler = (id) => {
+    
   };
 
   return (
@@ -32,56 +53,63 @@ const CartItem = ({ item }) => {
               className="w-5 bg-cover mr-3"
             />
             <figcaption>
-              <h3 className="font-semibold">
-                <Link to={`/product/${item.product}`}>{item.seller}</Link>
-              </h3>
+              <h3 className="font-semibold">{item.seller}</h3>
               <p className="text-xs text-gray-500">{item.city}</p>
             </figcaption>
           </figure>
         </div>
         <div className="flex">
           <figure className="flex">
-            <img
-              src={item.image}
-              alt={`img_${item.seller}`}
-              className="w-24 h-24 bg-cover rounded shadow"
-            />
+            <Link to={`/product/${item.id}`}>
+              <img
+                src={item.image}
+                alt={`img_${item.seller}`}
+                className="w-24 h-24 bg-cover rounded shadow"
+              />
+            </Link>
             <figcaption className="flex flex-col ml-5 justify-evenly">
-              <p className="text-sm">{item.name}</p>
+              <p className="text-sm hover:text-primary">
+                <Link to={`/product/${item.id}`}>{item.name}</Link>
+              </p>
               <h3 className="font-bold">Rp{number(item.price)}</h3>
               <div className="flex items-center">
-                <Button
+                {/* <Button
                   className={`p-1 rounded-full ${
                     item.stock > 0
                       ? "text-white bg-red-500 "
                       : "bg-gray-200 text-gray-500"
                   }`}
-                  onClick=""
+                  // onClick={decreaseHandler}
                 >
                   <Fa.FaMinus size={12} />
-                </Button>
-                <input
+                </Button> */}
+                <p>
+                  <strong>Kuantitas: {item.qty}</strong>
+                </p>
+                {/* <input
                   className="w-10 text-center border-primary border-0 border-b rounded-none"
                   onChange={onChangeHandler}
-                  value={input}
-                />
-                <Button
+                  value={item.qty}
+                /> */}
+                {/* <Button
                   className={`p-1 rounded-full ${
                     item.stock > 0
                       ? "bg-primary text-white"
                       : "bg-gray-200 text-gray-500"
                   }`}
-                  onClick=""
+                  // onClick={increaseHandler}
                 >
                   <Fa.FaPlus size={12} />
-                </Button>
+                </Button> */}
               </div>
             </figcaption>
           </figure>
         </div>
       </div>
       <div className="">
-        <Ai.AiOutlineDelete size={24} />
+        <Button onClick={() => removeFromCartHandler(item.id)}>
+          <Ai.AiOutlineDelete size={24} />
+        </Button>
       </div>
     </div>
   );
