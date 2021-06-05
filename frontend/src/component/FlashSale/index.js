@@ -1,5 +1,4 @@
 import React from "react";
-import * as Hi from "react-icons/hi";
 import { Button, Card, Counter } from "parts";
 import { flash_sale } from "assets";
 
@@ -20,7 +19,6 @@ const FlashSale = (props) => {
         </div>
         <Button outerClassName="flex flex items-center sm:text-sm md:text-sm focus:border-none">
           Lihat Semua
-          <Hi.HiChevronDoubleRight size={18} />
         </Button>
       </div>
       <div className="flex items-center relative mt-10 overflow">

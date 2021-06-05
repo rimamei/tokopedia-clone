@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card } from "parts";
 
-const Rekomendasi = (props) => {
-  console.log(`Rekomendasi: ${props}`)
-  const { data } = props;
+const Rekomendasi = ({ data }) => {
   const [limit, setLimit] = useState(6);
 
   const loadMore = (e) => {
@@ -15,7 +13,7 @@ const Rekomendasi = (props) => {
     <section className="flex flex-col">
       <div className="w-full pb-12">
         <div className="mb-5">
-          <h1 className="text-3xl font-bold">{props.children}</h1>
+          <h1 className="text-3xl font-bold">{data.children}</h1>
         </div>
         <div className="mt-10 grid grid-cols-6 gap-8">
           {data.slice(0, limit).map((item) => (

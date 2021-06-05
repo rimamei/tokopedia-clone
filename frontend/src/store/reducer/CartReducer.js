@@ -1,9 +1,4 @@
-import {
-  CART_ADD_ITEM,
-  ADJUST_CART,
-  INCREASE,
-  DECREASE,
-} from "store/constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "store/constants/cartConstants";
 
 export const sumTotal = () => {};
 
@@ -24,17 +19,11 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       } else {
         return { ...state, cartItems: [...state.cartItems, action.payload] };
       }
-    case ADJUST_CART:
+    case CART_REMOVE_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.map((x) =>
-          x.id === action.payload.id ? { ...x, qty: +action.payload.qty } : x
-        ),
+        cartItems: state.cartItems.filter((x) => x.id !== action.payload),
       };
-    case INCREASE:
-      return {};
-    case DECREASE:
-      return {};
     default:
       return state;
   }

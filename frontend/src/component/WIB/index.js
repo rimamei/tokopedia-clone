@@ -1,16 +1,13 @@
 import React from "react";
-import * as Hi from "react-icons/hi";
 import { Button, Card } from "parts";
 
-const WIB = (props) => {
-  const { data } = props;
+const WIB = ({ data, children }) => {
   return (
     <section className="w-full mb-10 pb-12 border-b border-gray-200">
       <div className="flex items-end justify-between mb-5">
-        <h1 className="text-3xl font-bold">{props.children}</h1>
+        <h1 className="text-3xl font-bold">{children}</h1>
         <Button outerClassName="flex flex items-center cursor-pointer outline-none sm:text-sm md:text-sm focus:border-none">
           Lihat Semua
-          <Hi.HiChevronDoubleRight size={18} />
         </Button>
       </div>
       <div>

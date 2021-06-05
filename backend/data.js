@@ -1,86 +1,102 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Rima",
+      email: "rimameih@gmail.com",
+      password: bcrypt.hashSync("1234", 8),
+      isAdmin: true,
+    },
+    {
+      name: "Fifi",
+      email: "fifi123@gmail.com",
+      password: bcrypt.hashSync("1234", 8),
+      isAdmin: false,
+    },
+  ],
   banner: [
     {
       _id: 12,
-      image: "/images/Banner/Banner-1.jpg"
+      image: "/images/Banner/Banner-1.jpg",
     },
     {
       _id: 13,
-      image: "/images/Banner/Banner-2.jpg"
+      image: "/images/Banner/Banner-2.jpg",
     },
     {
       _id: 14,
-      image: "/images/Banner/Banner-3.jpg"
+      image: "/images/Banner/Banner-3.jpg",
     },
     {
       _id: 15,
-      image: "/images/Banner/Banner-4.jpg"
+      image: "/images/Banner/Banner-4.jpg",
     },
     {
       _id: 16,
-      image: "/images/Banner/Banner-5.jpg"
+      image: "/images/Banner/Banner-5.jpg",
     },
   ],
   trending: [
-    { 
+    {
       _id: 1,
-      keyword: "Toko Rima", 
-      isUp: true, 
-      number: 234 
+      keyword: "Toko Rima",
+      isUp: true,
+      number: 234,
     },
-    { 
+    {
       _id: 2,
-      keyword: "Permen", 
-      isUp: false, 
-      number: 1 
+      keyword: "Permen",
+      isUp: false,
+      number: 1,
     },
-    { 
+    {
       _id: 3,
-      keyword: "Kopiko", 
-      isUp: true, 
-      number: 1 
+      keyword: "Kopiko",
+      isUp: true,
+      number: 1,
     },
-    { 
+    {
       _id: 4,
-      keyword: "Celana", 
-      isUp: true, 
-      number: 7 
+      keyword: "Celana",
+      isUp: true,
+      number: 7,
     },
-    { 
+    {
       _id: 5,
-      keyword: "Celana", 
-      isUp: true, 
-      number: 9 
+      keyword: "Celana",
+      isUp: true,
+      number: 9,
     },
-    { 
+    {
       _id: 6,
-      keyword: "Pasmina", 
-      isUp: false, 
-      number: 5 
+      keyword: "Pasmina",
+      isUp: false,
+      number: 5,
     },
-    { 
+    {
       _id: 7,
-      keyword: "Sepatu", 
-      isUp: false, 
-      number: 6 
+      keyword: "Sepatu",
+      isUp: false,
+      number: 6,
     },
-    { 
+    {
       _id: 8,
-      keyword: "Jilbab segi empat", 
-      isUp: true, 
-      number: 9 
+      keyword: "Jilbab segi empat",
+      isUp: true,
+      number: 9,
     },
-    { 
+    {
       _id: 9,
-      keyword: "handphone", 
-      isUp: false, 
-      number: 2 
+      keyword: "handphone",
+      isUp: false,
+      number: 2,
     },
-    { 
+    {
       _id: 10,
-      keyword: "lenovo", 
-      isUp: true, 
-      number: 21 
+      keyword: "lenovo",
+      isUp: true,
+      number: 21,
     },
   ],
   products: [
@@ -89,25 +105,24 @@ const data = {
       sold: 234,
       stock: 1,
       city: "Jakarta Barat",
-      name:
-        "CY MATCHA POWDER 100% ORIGINAL JAPAN IMPORT GREEN TEA POWDER 100 GR",
+      name: "CY MATCHA POWDER 100% ORIGINAL JAPAN IMPORT GREEN TEA POWDER 100 GR",
       category: "Makanan & Minuman",
       image: [
         {
           _id: 1,
-          imageUrl: "/images/matcha-1.jpg"
+          imageUrl: "/images/matcha-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/matcha-2.jpg"
+          imageUrl: "/images/matcha-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/matcha-3.jpg"
+          imageUrl: "/images/matcha-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/matcha-4.jpg"
+          imageUrl: "/images/matcha-4.jpg",
         },
       ],
       price: 75000,
@@ -123,25 +138,24 @@ const data = {
       sold: 234,
       stock: 120,
       city: "Jakarta Barat",
-      name:
-        "HEADSET | HEADPHONE | HANDSFREE | EARPHONE GAMING JETE-G1",
+      name: "HEADSET | HEADPHONE | HANDSFREE | EARPHONE GAMING JETE-G1",
       category: "Headphone",
       image: [
         {
           _id: 1,
-          imageUrl: "/images/jete-1.jpg"
+          imageUrl: "/images/jete-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/jete-2.jpg"
+          imageUrl: "/images/jete-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/jete-3.jpg"
+          imageUrl: "/images/jete-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/jete-4.jpg"
+          imageUrl: "/images/jete-4.jpg",
         },
       ],
       price: 258800,
@@ -162,19 +176,19 @@ const data = {
       image: [
         {
           _id: 1,
-          imageUrl: "/images/lipton-1.jpg"
+          imageUrl: "/images/lipton-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/lipton-2.jpg"
+          imageUrl: "/images/lipton-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/lipton-3.jpg"
+          imageUrl: "/images/lipton-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/lipton-4.jpg"
+          imageUrl: "/images/lipton-4.jpg",
         },
       ],
       price: 39166,
@@ -190,22 +204,21 @@ const data = {
       sold: 234,
       stock: 120,
       city: "Jakarta Barat",
-      name:
-        "SAMSUNG GALAXY A72 8/128 DAN 8/256 2021 GARANSI RESMI SEGEL BNIB - Putih 128GB",
+      name: "SAMSUNG GALAXY A72 8/128 DAN 8/256 2021 GARANSI RESMI SEGEL BNIB - Putih 128GB",
       category: "Android OS",
       image: [
         {
           _id: 1,
-          imageUrl: "/images/samsung-1.jpg"
+          imageUrl: "/images/samsung-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/samsung-2.jpg"
+          imageUrl: "/images/samsung-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/samsung-3.jpg"
-        }
+          imageUrl: "/images/samsung-3.jpg",
+        },
       ],
       price: 5798000,
       seller: "Samudera Sports",
@@ -225,16 +238,16 @@ const data = {
       image: [
         {
           _id: 1,
-          imageUrl: "/images/force-1.jpg"
+          imageUrl: "/images/force-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/force-2.jpg"
+          imageUrl: "/images/force-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/force-3.jpg"
-        }
+          imageUrl: "/images/force-3.jpg",
+        },
       ],
       price: 50000,
       seller: "Enesis Official Store",
@@ -249,29 +262,28 @@ const data = {
       sold: 234,
       stock: 120,
       city: "Jakarta Barat",
-      name:
-        "Anti Gores Hydrogel Spigen Samsung Galaxy S21 Ultra Plus Neo Flex - S21 Ultra",
+      name: "Anti Gores Hydrogel Spigen Samsung Galaxy S21 Ultra Plus Neo Flex - S21 Ultra",
       category: "Android OS",
-      image:  [
+      image: [
         {
           _id: 1,
-          imageUrl: "/images/spigen-1.jpg"
+          imageUrl: "/images/spigen-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/spigen-2.jpg"
+          imageUrl: "/images/spigen-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/spigen-3.jpg"
+          imageUrl: "/images/spigen-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/spigen-4.jpg"
+          imageUrl: "/images/spigen-4.jpg",
         },
         {
           _id: 5,
-          imageUrl: "/images/spigen-5.jpg"
+          imageUrl: "/images/spigen-5.jpg",
         },
       ],
       price: 233752,
@@ -289,30 +301,30 @@ const data = {
       city: "Jakarta Barat",
       name: "Wulfi Day to Day Kemeja Tunik Toyobo Fenomenal White - L",
       category: "Tunik Muslim",
-      image:  [
+      image: [
         {
           _id: 1,
-          imageUrl: "/images/tunik-1.jpg"
+          imageUrl: "/images/tunik-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/tunik-2.jpg"
+          imageUrl: "/images/tunik-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/tunik-3.jpg"
+          imageUrl: "/images/tunik-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/tunik-4.jpg"
+          imageUrl: "/images/tunik-4.jpg",
         },
         {
           _id: 5,
-          imageUrl: "/images/tunik-5.jpg"
+          imageUrl: "/images/tunik-5.jpg",
         },
         {
           _id: 6,
-          imageUrl: "/images/tunik-6.jpg"
+          imageUrl: "/images/tunik-6.jpg",
         },
       ],
       price: 98000,
@@ -330,19 +342,19 @@ const data = {
       city: "Jakarta Barat",
       name: "GFRIEND ALBUM -回: LABYRINTH",
       category: "CD & DVD Musik",
-      image:  [
+      image: [
         {
           _id: 1,
-          imageUrl: "/images/album-1.jpg"
+          imageUrl: "/images/album-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/album-2.jpg"
+          imageUrl: "/images/album-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/album-3.jpg"
-        }
+          imageUrl: "/images/album-3.jpg",
+        },
       ],
       price: 275000,
       seller: "Dharu Elfshop",
@@ -357,30 +369,29 @@ const data = {
       sold: 234,
       stock: 120,
       city: "Jakarta Barat",
-      name:
-        "CELANA PANJANG LEVIS JEANS SLIM FIT DENIM PENSIL PRIA LAKI-LAKI - A.Hitam Pekat, 27",
+      name: "CELANA PANJANG LEVIS JEANS SLIM FIT DENIM PENSIL PRIA LAKI-LAKI - A.Hitam Pekat, 27",
       category: "Celana Jeans Pria",
-      image:  [
+      image: [
         {
           _id: 1,
-          imageUrl: "/images/celana-1.jpg"
+          imageUrl: "/images/celana-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/celana-2.jpg"
+          imageUrl: "/images/celana-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/celana-3.jpg"
+          imageUrl: "/images/celana-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/celana-4.jpg"
+          imageUrl: "/images/celana-4.jpg",
         },
         {
           _id: 5,
-          imageUrl: "/images/celana-5.jpg"
-        }
+          imageUrl: "/images/celana-5.jpg",
+        },
       ],
       price: 79999,
       seller: "MG Store 1990",
@@ -397,26 +408,26 @@ const data = {
       city: "Jakarta Barat",
       name: "Nampan tray baki kayu putih kotak murah bagus awet kuat persegi",
       category: "Nampan",
-      image:  [
+      image: [
         {
           _id: 1,
-          imageUrl: "/images/nampan-1.jpg"
+          imageUrl: "/images/nampan-1.jpg",
         },
         {
           _id: 2,
-          imageUrl: "/images/nampan-2.jpg"
+          imageUrl: "/images/nampan-2.jpg",
         },
         {
           _id: 3,
-          imageUrl: "/images/nampan-3.jpg"
+          imageUrl: "/images/nampan-3.jpg",
         },
         {
           _id: 4,
-          imageUrl: "/images/nampan-4.jpg"
+          imageUrl: "/images/nampan-4.jpg",
         },
         {
           _id: 5,
-          imageUrl: "/images/nampan-5.jpg"
+          imageUrl: "/images/nampan-5.jpg",
         },
       ],
       price: 33150,

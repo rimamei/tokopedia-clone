@@ -7,9 +7,12 @@ import number from "utils/formatNumber";
 import { official_store, star_store } from "assets";
 // import { addToCart, adjustCart, increase } from "store/actions/CartActions";
 import { Button } from "parts";
+import { removeFromCart } from "store/actions/CartActions";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 const CartItem = ({ item }) => {
-  const history = useHistory();
+  const dispatch = useDispatch();
   // const [input, setInput] = useState(item.qty);
   // const dispatch = useDispatch();
 
@@ -39,7 +42,14 @@ const CartItem = ({ item }) => {
   // };
 
   const removeFromCartHandler = (id) => {
-    
+    console.log('Cart Item: ', id)
+    dispatch(removeFromCart(id));
+    Swal.fire({
+      width: 400,
+      text: "Berhasil Dihapus",
+      icon: "info",
+      showCancelButton: false,
+    });
   };
 
   return (
