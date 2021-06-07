@@ -2,19 +2,22 @@ import express from "express";
 import mongoose from "mongoose";
 import data from "./data.js";
 import userRouter from "./router/UserRouter.js";
+import productRouter from "./router/ProductRouter.js";
 
 const app = express();
-mongoose.connect("mongodb://localhost:27017/tokopedia-clone", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URL || "mongodb://localhost:27017/tokopedia-clone",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
+);
 
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
+app.use(express.json());
 
-app.use("/api/users", userRouter);
+app.use("/api/v1/product", productRouter);
+app.use("/api/v1/user", userRouter);
 
 app.get("/api/products/:id", (req, res) => {
   const product = data.products.find((x) => x._id === req.params.id);
@@ -33,6 +36,7 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
+// expressAsyncHandler untuk melihat error
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
