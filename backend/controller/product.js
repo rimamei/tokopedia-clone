@@ -73,7 +73,7 @@ const product = {
     res.status(200).json({ message: "Get image success!", image: image });
   }),
   productSeed: expressAsyncHandler(async (req, res) => {
-    await Product.remove({});
+    // await Product.remove({});
     const product = await Product.insertMany(data.products);
 
     for (let i = 0; i < data.products.length; i++) {
@@ -87,6 +87,25 @@ const product = {
       message: "Product has been seed successfully!",
       product: product,
     });
+  }),
+  getProduct: expressAsyncHandler(async (req, res) => {
+    const product = await Product.find()
+      .populate({ path: "categoryId", select: "_id name" })
+      .populate({ path: "imageId", select: "_id, imageUrl" });
+
+    res.status(200).json({ message: "Get Product success!", product });
+  }),
+  detailProduct: expressAsyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id)
+      .populate({ path: "categoryId", select: "_id name" })
+      .populate({ path: "imageId", select: "_id, imageUrl" });
+
+    if (product) {
+      res.status(200).json({ message: "Get Product Success!", product });
+    } else {
+      res.status(404).json({ message: "Product Not Found!" });
+    }
   }),
 };
 

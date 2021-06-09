@@ -12,5 +12,7 @@ router.get("/image/seed", productController.imageSeed);
 router.get("/image", productController.getImage);
 
 router.get("/product/seed", productController.productSeed);
+router.get("/product", productController.getProduct);
+router.get("/product/:id", productController.detailProduct);
 
 export default router;
