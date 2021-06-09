@@ -1,8 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import data from "./data.js";
-import userRouter from "./router/UserRouter.js";
-import productRouter from "./router/ProductRouter.js";
+import Routes from "./router/index.js";
 
 const app = express();
 mongoose.connect(
@@ -16,21 +15,7 @@ mongoose.connect(
 
 app.use(express.json());
 
-app.use("/api/v1/product", productRouter);
-app.use("/api/v1/user", userRouter);
-
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product not found" });
-  }
-});
-
-app.get("/api/banner", (req, res) => {
-  res.send(data.banner);
-});
+app.use("/v1", Routes);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
