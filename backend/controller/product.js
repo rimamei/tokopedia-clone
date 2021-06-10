@@ -5,9 +5,9 @@ import data from "../data.js";
 import Product from "../model/Product.js";
 
 const product = {
-  categorySeed: expressAsyncHandler(async (req, res) => {
+  seedCategory: expressAsyncHandler(async (req, res) => {
     await Category.remove({});
-    const createdCategory = await Category.insertMany(data.category);
+    const createdCategory = await Category.insertMany(data.categories);
     res.status(201).json({
       message: "Category has been created successfully!",
       category: createdCategory,
@@ -25,7 +25,10 @@ const product = {
     });
   }),
   getCategory: expressAsyncHandler(async (req, res) => {
-    const category = await Category.find().select("_id name");
+    const category = await Category.find()
+      .select("_id name productId")
+      .populate({ path: "productId", select: "_id name"});
+
     res
       .status(200)
       .json({ message: "Get category success!", category: category });
@@ -72,7 +75,7 @@ const product = {
     const image = await Image.find().select("_id imageUrl");
     res.status(200).json({ message: "Get image success!", image: image });
   }),
-  productSeed: expressAsyncHandler(async (req, res) => {
+  seedProduct: expressAsyncHandler(async (req, res) => {
     // await Product.remove({});
     const product = await Product.insertMany(data.products);
 
@@ -80,6 +83,7 @@ const product = {
       const category = await Category.findOne({
         _id: data.products[i].categoryId._id,
       });
+
       category.productId.push({ _id: product[i]._id });
       await category.save();
     }

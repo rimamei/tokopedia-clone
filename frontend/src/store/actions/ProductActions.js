@@ -13,8 +13,9 @@ export const listProducts = () => async (dispatch) => {
     type: PRODUCT_LIST_REQUEST,
   });
   try {
-    const data = await axios.get("/v1/product");
-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
+    const { data } = await axios.get("/v1/product");
+    const { product } = data;
+    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: product });
   } catch (error) {
     dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
   }
@@ -27,7 +28,8 @@ export const detailProduct = (productId) => async (dispatch) => {
   });
   try {
     const { data } = await axios.get(`/v1/product/${productId}`);
-    dispatch({ type: PRODUCT_DETAIL_SUCCESS, payload: data });
+    const { product } = data;
+    dispatch({ type: PRODUCT_DETAIL_SUCCESS, payload: product });
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAIL_FAIL,

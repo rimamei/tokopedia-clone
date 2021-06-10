@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import data from "./data.js";
 import dotenv from "dotenv";
 import Routes from "./router/index.js";
 

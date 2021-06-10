@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Category, Search, Trending, Button } from "parts";
 import { Link } from "react-router-dom";
 import * as Bi from "react-icons/bi";
@@ -6,11 +6,21 @@ import * as Im from "react-icons/im";
 import * as Fa from "react-icons/fa";
 import * as Fi from "react-icons/fi";
 import { Logo } from "assets";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "store/actions/UserActions";
 
 const Header = () => {
+  const [isDropdown, setIsDropdown] = useState(false);
+
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems);
-  const cartItems = cart.reduce((a, c) => a + c.qty, 0)
+  const cartItems = cart.reduce((a, c) => a + c.qty, 0);
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
 
   return (
     <header className="w-full lg:w-lg z-50 border-b border-gray-200 fixed t-0 l-0 bg-white">
@@ -61,16 +71,49 @@ const Header = () => {
             </div>
           </Link>
           <div className="border-r border-gray-300 text-transparent">l</div>
-          <Link to="/signin">
-            <Button outerClassName="text-primary border-2 border-primary">
-              Masuk
-            </Button>
-          </Link>
-          <Link to="/signup">
-            <Button outerClassName="text-primary border-2 border-primary">
-              Daftar
-            </Button>
-          </Link>
+          {userInfo ? (
+            <div
+              className="flex flex-col items-center"
+            >
+              <Link
+                to="#"
+                className={`flex py-2 px-5 items-center justify-between ${
+                  isDropdown ? "hover:bg-gray-200" : ""
+                } rounded`}
+                onClick={() => setIsDropdown(!isDropdown)}
+              >
+                {userInfo.name} <Fa.FaCaretDown className="ml-2" />
+              </Link>
+              <ul
+                className={`${
+                  isDropdown ? "block" : "hidden"
+                } absolute mt-10 bg-white shadow rounded py-2 px-5`}
+              >
+                <Link to="#signout" className="hover:text-primary" onClick={signoutHandler}>
+                  Sign Out
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <Link to="/signin">
+                <Button
+                  type="button"
+                  outerClassName="text-primary border-2 border-primary"
+                >
+                  Masuk
+                </Button>
+              </Link>
+              <Link to="/signup">
+                <Button
+                  type="button"
+                  outerClassName="text-primary border-2 border-primary"
+                >
+                  Daftar
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </header>

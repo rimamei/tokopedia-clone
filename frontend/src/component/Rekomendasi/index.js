@@ -23,6 +23,7 @@ const Rekomendasi = ({ data }) => {
       </div>
       <div className="self-center">
         <Button
+          type="button"
           outerClassName="px-10 py-3 text-xl border-2 border-primary text-primary focus:ring-2 focus:ring-green-500 hover:shadow"
           onClick={loadMore}
         >

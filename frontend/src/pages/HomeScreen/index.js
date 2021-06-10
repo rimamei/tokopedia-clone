@@ -12,7 +12,7 @@ const HomeScreen = () => {
   const bannerList = useSelector((state) => state.bannerList);
   const productList = useSelector((state) => state.productList);
   const { loading: loadingBanner, error: bannerError, banner } = bannerList;
-  const { loading, error, products } = productList;
+  const { loading, error, products } = productList;  
 
   useEffect(() => {
     dispatch(listBanner());
@@ -26,7 +26,7 @@ const HomeScreen = () => {
       ) : bannerError ? (
         <MessageBox>{error}</MessageBox>
       ) : (
-        <Banner banner={banner.data} />
+        <Banner banner={banner} />
       )}
 
       <div className="flex justify-evenly my-12 text-normal">
@@ -62,9 +62,9 @@ const HomeScreen = () => {
         <MessageBox>{error}</MessageBox>
       ) : (
         <div>
-          <FlashSale data={products.data} />
-          <WIB data={products.data}>Produk WIB</WIB>
-          <Rekomendasi data={products.data}>Rekomendasi</Rekomendasi>
+          <FlashSale data={products} />
+          <WIB data={products}>Produk WIB</WIB>
+          <Rekomendasi data={products}>Rekomendasi</Rekomendasi>
         </div>
       )}
     </main>

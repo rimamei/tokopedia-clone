@@ -117,7 +117,7 @@ const CartItem = ({ item }) => {
         </div>
       </div>
       <div className="">
-        <Button onClick={() => removeFromCartHandler(item.id)}>
+        <Button type="button" onClick={() => removeFromCartHandler(item.id)}>
           <Ai.AiOutlineDelete size={24} />
         </Button>
       </div>

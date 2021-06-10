@@ -2,11 +2,12 @@ import React from "react";
 import { Button, Card } from "parts";
 
 const WIB = ({ data, children }) => {
+  
   return (
     <section className="w-full mb-10 pb-12 border-b border-gray-200">
       <div className="flex items-end justify-between mb-5">
         <h1 className="text-3xl font-bold">{children}</h1>
-        <Button outerClassName="flex flex items-center cursor-pointer outline-none sm:text-sm md:text-sm focus:border-none">
+        <Button type="button" outerClassName="flex flex items-center cursor-pointer outline-none sm:text-sm md:text-sm focus:border-none">
           Lihat Semua
         </Button>
       </div>

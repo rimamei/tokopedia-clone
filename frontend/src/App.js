@@ -4,12 +4,12 @@ import {
   CartScreen,
   HomeScreen,
   SignUpScreen,
-  LoginScreen,
+  SigninScreen,
   ProductScreen,
 } from "pages";
-import { useSelector } from "react-redux";
 
 const App = () => {
+ 
   return (
     <div className="antialiased font-body w-full overflow-hidden">
       <Router>
@@ -17,8 +17,8 @@ const App = () => {
         <Switch>
           <Route path="/" component={HomeScreen} exact />
           <Route path="/cart" component={CartScreen} />
+          <Route path="/signin" component={SigninScreen} />
           <Route path="/signup" component={SignUpScreen} />
-          <Route path="/login" component={LoginScreen} />
           <Route path="/product/:id" component={ProductScreen} />
         </Switch>
         <Footer />

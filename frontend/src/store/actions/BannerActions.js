@@ -10,8 +10,9 @@ export const listBanner = () => async (dispatch) => {
     type: BANNER_REQUEST,
   });
   try {
-    const data = await axios.get("/v1/banner");
-    dispatch({ type: BANNER_SUCCESS, payload: data });
+    const { data } = await axios.get("/v1/banner");
+    const { banner } = data;
+    dispatch({ type: BANNER_SUCCESS, payload: banner });
   } catch (error) {
     dispatch({ type: BANNER_FAIL, payload: error.message });
   }

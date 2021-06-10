@@ -8,21 +8,15 @@ const productSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    imageId: [
-      {
-        type: ObjectId,
-        ref: "Image",
-      },
-    ],
-    seller: {
+    city: {
       type: String,
       required: true,
     },
-    categoryId: {
-      type: ObjectId,
-      ref: "Category",
-    },
     description: {
+      type: String,
+      required: true,
+    },
+    numReviews: {
       type: String,
       required: true,
     },
@@ -30,17 +24,31 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    stock: {
-      type: String,
-      required: true,
-    },
     rating: {
       type: String,
       required: true,
     },
-    numReviews: {
+    seller: {
       type: String,
       required: true,
+    },
+    sold: {
+      type: String,
+      required: true,
+    },
+    stock: {
+      type: String,
+      required: true,
+    },
+    imageId: [
+      {
+        type: ObjectId,
+        ref: "Image",
+      },
+    ],
+    categoryId: {
+      type: ObjectId,
+      ref: "Category",
     },
   },
   {

@@ -13,12 +13,6 @@ const CartScreen = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // window.localStorage.removeItem('cartItems');
-    // const cartStorage = window.localStorage.getItem('cartItems');
-    // console.log('cartStorage', cartStorage)
-    // if (productId) {
-    //   dispatch(addToCart(productId, qty));
-    // }
   }, []);
 
   const checkoutHandler = () => {
@@ -36,7 +30,10 @@ const CartScreen = () => {
           <p className="mb-5">
             Yuk, isi dengan barang-barang yang ingin kamu beli
           </p>
-          <Button outerClassName="bg-primary text-white px-10 py-2">
+          <Button
+            type="button"
+            outerClassName="bg-primary text-white px-10 py-2"
+          >
             <Link to="/">Mulai Belanja</Link>
           </Button>
         </div>
@@ -64,9 +61,11 @@ const CartScreen = () => {
               <h3 className="font-semibold mb-2">Total Harga</h3>
               <h3 className="font-semibold mb-2">Rp{subtotal}</h3>
             </div>
-            <Button 
-            onClick={checkoutHandler}
-            outerClassName="text-center bg-primary w-full py-3 text-white">
+            <Button
+              type="button"
+              onClick={checkoutHandler}
+              outerClassName="text-center bg-primary w-full py-3 text-white"
+            >
               Beli ({qty} barang)
             </Button>
           </div>

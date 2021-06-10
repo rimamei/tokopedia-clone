@@ -2,9 +2,7 @@ import React from "react";
 import { Button, Card, Counter } from "parts";
 import { flash_sale } from "assets";
 
-const FlashSale = (props) => {
-  const { data } = props;
-  
+const FlashSale = ({ data }) => {
   return (
     <section className="w-full mb-10 pb-12 border-b border-gray-200">
       <div className="flex items-end justify-between mb-5">
@@ -17,7 +15,7 @@ const FlashSale = (props) => {
           </h1>
           <Counter />
         </div>
-        <Button outerClassName="flex flex items-center sm:text-sm md:text-sm focus:border-none">
+        <Button type="button" outerClassName="flex flex items-center sm:text-sm md:text-sm focus:border-none">
           Lihat Semua
         </Button>
       </div>

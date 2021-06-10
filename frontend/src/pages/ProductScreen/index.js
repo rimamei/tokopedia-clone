@@ -100,7 +100,7 @@ const ProductScreen = (props) => {
           <figure className="flex-col-1 m-5">
             <img
               className="rounded border w-full"
-              src={product.image[0].imageUrl}
+              src={product.imageId[0].imageUrl}
               alt={product.name}
             />
           </figure>
@@ -133,12 +133,16 @@ const ProductScreen = (props) => {
           <div className="flex-col-1 m-5 p-5 border shadow rounded overflow-hidden">
             <p className="font-bold">Jumlah yang dibeli</p>
             <div className="flex items-center mb-2">
-              { qty <= 1 ? (
-                <Button className="p-1 rounded-full bg-gray-200 text-gray-500">
+              {qty <= 1 ? (
+                <Button
+                  type="button"
+                  className="p-1 rounded-full bg-gray-200 text-gray-500"
+                >
                   <Fa.FaMinus size={12} />
                 </Button>
               ) : (
                 <Button
+                  type="button"
                   className="p-1 rounded-full text-white bg-red-500"
                   onClick={() => setQty(qty - 1)}
                 >
@@ -152,11 +156,15 @@ const ProductScreen = (props) => {
                 className="min-w-3 w-10 outline-none border-0 border-b rounded-none"
               />
               {qty >= product.stock ? (
-                <Button className="p-1 rounded-full bg-gray-200 text-gray-500">
+                <Button
+                  type="button"
+                  className="p-1 rounded-full bg-gray-200 text-gray-500"
+                >
                   <Fa.FaPlus size={12} />
                 </Button>
               ) : (
                 <Button
+                  type="button"
                   className={`p-1 rounded-full ${
                     product.stock > 0
                       ? "bg-primary text-white"
@@ -194,6 +202,7 @@ const ProductScreen = (props) => {
             {qty > product.stock || qty < 1 ? (
               <>
                 <Button
+                  type="button"
                   disabled
                   outerClassName="flex items-center justify-center my-2 w-full py-2 bg-gray-200 text-gray-500"
                 >
@@ -201,6 +210,7 @@ const ProductScreen = (props) => {
                   &emsp;Keranjang
                 </Button>
                 <Button
+                  type="button"
                   disabled
                   outerClassName="border w-full py-2 text-gray-500 border-gray-500"
                 >
@@ -210,6 +220,7 @@ const ProductScreen = (props) => {
             ) : (
               <>
                 <Button
+                  type="button"
                   onClick={addToCartHandler}
                   outerClassName="flex items-center justify-center  my-2 w-full py-2 bg-primary text-white"
                 >
@@ -217,6 +228,7 @@ const ProductScreen = (props) => {
                   &emsp;Keranjang
                 </Button>
                 <Button
+                  type="button"
                   onClick={directToCartHandler}
                   outerClassName="border w-full py-2 text-primary border-primary"
                 >

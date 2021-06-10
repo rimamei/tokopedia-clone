@@ -222,14 +222,43 @@ const data = {
       imageUrl: "/images/nampan-5.jpg",
     },
   ],
+  categories: [
+    {
+      name: "Pakaian Wanita"
+    },
+    {
+      name: "Pakaian Pria"
+    },
+    {
+      name: "Pest Control"
+    },
+    {
+      name: "Elektronik"
+    },
+    {
+      name: "Peralatan Rumah Tangga"
+    },
+    {
+      name: "Makanan dan Minuman"
+    },
+    {
+      name: "Handphone"
+    },
+    {
+      name: "Aksesoris Handphone"
+    },
+    {
+      name: "CD & DVD Musik"
+    },
+  ],
   products: [
     {
+      name: "CY MATCHA POWDER 100% ORIGINAL JAPAN IMPORT GREEN TEA POWDER 100 GR",
       sold: 234,
       stock: 1,
       city: "Jakarta Barat",
-      name: "CY MATCHA POWDER 100% ORIGINAL JAPAN IMPORT GREEN TEA POWDER 100 GR",
       categoryId: {
-        _id: "60bdb16218defc11f053cd69",
+        _id: "60c1d016b95fbf243c9cf55e",
         // name: "Makanan dan Minuman",
       },
       imageId: [
@@ -264,7 +293,7 @@ const data = {
       city: "Jakarta Barat",
       name: "HEADSET | HEADPHONE | HANDSFREE | EARPHONE GAMING JETE-G1",
       categoryId: {
-        _id: "60c0163665f86f32906057e2",
+        _id: "60c1d016b95fbf243c9cf55c",
         // name: "Elektronik",
       },
       imageId: [
@@ -299,7 +328,7 @@ const data = {
       city: "Jakarta Barat",
       name: "Lipton Ice Tea Mix Lychee 510gr",
       categoryId: {
-        _id: "60bdb16218defc11f053cd69",
+        _id: "60c1d016b95fbf243c9cf55e",
         // name: "Makanan dan Minuman",
       },
       imageId: [
@@ -334,7 +363,7 @@ const data = {
       city: "Jakarta Barat",
       name: "SAMSUNG GALAXY A72 8/128 DAN 8/256 2021 GARANSI RESMI SEGEL BNIB - Putih 128GB",
       categoryId: {
-        _id: "60c0163665f86f32906057e2",
+        _id: "60c1d016b95fbf243c9cf55c",
         // name: "Elektronik",
       },
       imageId: [
@@ -365,7 +394,7 @@ const data = {
       city: "Jakarta Barat",
       name: "Force Magic Lemon Pop Art 600 ml - Paket Hemat Isi 2",
       categoryId: {
-        _id: "60c0165e65f86f32906057e4",
+        _id: "60c1d016b95fbf243c9cf55b",
         // name: "Pest Control",
       },
       imageId: [
@@ -396,7 +425,7 @@ const data = {
       city: "Jakarta Barat",
       name: "Anti Gores Hydrogel Spigen Samsung Galaxy S21 Ultra Plus Neo Flex - S21 Ultra",
       categoryId: {
-        _id: "60c0167465f86f32906057e6",
+        _id: "60c1d016b95fbf243c9cf560",
         // name: "Aksesoris Handphone",
       },
       imageId: [
@@ -435,7 +464,7 @@ const data = {
       city: "Jakarta Barat",
       name: "Wulfi Day to Day Kemeja Tunik Toyobo Fenomenal White - L",
       categoryId: {
-        _id: "60bdb17018defc11f053cd6a",
+        _id: "60c1d016b95fbf243c9cf559",
         // name: "Pakaian Wanita",
       },
       imageId: [
@@ -478,7 +507,7 @@ const data = {
       city: "Jakarta Barat",
       name: "GFRIEND ALBUM -回: LABYRINTH",
       categoryId: {
-        _id: "60c0166b65f86f32906057e5",
+        _id: "60c1d016b95fbf243c9cf561",
         // name: "CD & DVD Musik"
       },
       imageId: [
@@ -509,7 +538,7 @@ const data = {
       city: "Jakarta Barat",
       name: "CELANA PANJANG LEVIS JEANS SLIM FIT DENIM PENSIL PRIA LAKI-LAKI - A.Hitam Pekat, 27",
       categoryId: {
-        _id: "60c0167465f86f32906057e6",
+        _id: "60c1d016b95fbf243c9cf55a",
         // name: "Pakaian Pria",
       },
       imageId: [
@@ -548,7 +577,7 @@ const data = {
       city: "Jakarta Barat",
       name: "Nampan tray baki kayu putih kotak murah bagus awet kuat persegi",
       categoryId: {
-        _id: "60c0164d65f86f32906057e3",
+        _id: "60c1d016b95fbf243c9cf55d",
         // name: "Peralatan Rumah Tangga",
       },
       imageId: [

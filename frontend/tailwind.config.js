@@ -73,6 +73,7 @@ module.exports = {
         '2': '2rem',
         '3': '3rem',
         '4': '4rem',
+        '12': '12rem'
       },
       outline: {
         primary: "#42B549",

@@ -4,19 +4,19 @@ import React, { useState } from "react";
 import { official_store, star_store } from "assets";
 import { Link } from "react-router-dom";
 
-const Card = (props) => {
-  const { item } = props;
+const Card = ({ item }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
-
+  console.log('name length: ', item.name.length)
   return (
     <figure
+      key={item._id}
       onMouseOver={() => setIsMouseOver(true)}
       onMouseLeave={() => setIsMouseOver(false)}
       className="hover:shadow-xl hover:p-2 cursor-pointer col-span-1 m-10 h-300px border border-gray-200 bg-white text-sm m-auto rounded shadow leading-6"
     >
       <Link to={`/product/${item._id}`}>
         <img
-          src={item.image[0].imageUrl}
+          src={item.imageId[0].imageUrl}
           alt={item.name}
           className="h-150px rounded-t w-full cover"
         />
@@ -37,7 +37,7 @@ const Card = (props) => {
         <div className="flex items-center">
           <img
             src={item.isOfficialStore === true ? official_store : star_store}
-            alt=""
+            alt="store"
             className="h-5 w-5"
           />
           <p className="text-gray-500 cursor-pointer transition-all">

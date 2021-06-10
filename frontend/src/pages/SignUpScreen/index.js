@@ -50,7 +50,10 @@ const SignUp = () => {
                 Contoh: email@tokopedia.com
               </small>
             </div>
-            <Button outerClassName="bg-primary w-full py-3 text-xl text-white font-bold mt-5">
+            <Button
+              type="button"
+              outerClassName="bg-primary w-full py-3 text-xl text-white font-bold mt-5"
+            >
               DAFTAR
             </Button>
           </form>
