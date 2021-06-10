@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import data from "./data.js";
+import dotenv from "dotenv";
 import Routes from "./router/index.js";
+
+dotenv.config();
 
 const app = express();
 mongoose.connect(
@@ -14,6 +16,7 @@ mongoose.connect(
 );
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/v1", Routes);
 
