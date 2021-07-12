@@ -3,7 +3,7 @@ import { Header, Footer } from "component";
 import {
   CartScreen,
   HomeScreen,
-  SignUpScreen,
+  SignupScreen,
   SigninScreen,
   ProductScreen,
 } from "pages";
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/" component={HomeScreen} exact />
           <Route path="/cart" component={CartScreen} />
           <Route path="/signin" component={SigninScreen} />
-          <Route path="/signup" component={SignUpScreen} />
+          <Route path="/signup" component={SignupScreen} />
           <Route path="/product/:id" component={ProductScreen} />
         </Switch>
         <Footer />

@@ -36,19 +36,19 @@ const Banner = ({ banner }) => {
               <Io.IoIosArrowBack
                 onClick={prevSlide}
                 size={24}
-                className="text-gray-800 rounded"
+                className="text-gray-800 rounded cursor-pointer"
               />
             </div>
             <div className="absolute top-72 right-16 bg-white rounded-full p-1 shadow-md">
               <Io.IoIosArrowForward
                 onClick={nextSlide}
                 size={24}
-                className="text-gray-800 rounded"
+                className="text-gray-800 rounded cursor-pointer"
               />
             </div>
           </div>
           <section className="bg-gray-100 w-full">
-            <img src={item.imageUrl} alt="banner" className="w-full rounded-md" />
+            <img src={item.imageUrl} alt="banner" className="w-full rounded-md select-none" />
           </section>
         </div>
       ))}

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       animation: {
         slider: "slide 2s ease out infinite",
+        fading: "fade ease-in-out",
       },
       backgroundColor: {
         facebook: "#3B5998",
@@ -45,12 +46,16 @@ module.exports = {
       },
       keyframes: {
         slide: {
-          "20%": {
+          "0%": {
             transform: "translateY(100%)",
           },
-          "50%": {
+          "100%": {
             transform: "translateY(0%)",
           }
+        },
+        fade: {
+          from: {opacity: .5}, 
+          to: {opacity: 1}
         },
       },
       margin: {

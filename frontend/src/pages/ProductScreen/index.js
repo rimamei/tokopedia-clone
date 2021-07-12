@@ -153,7 +153,7 @@ const ProductScreen = (props) => {
                 type="number"
                 onChange={(e) => setQty(e.target.value)}
                 value={qty}
-                className="min-w-3 w-10 outline-none border-0 border-b rounded-none"
+                className="min-w-3 w-10 text-center px-2 outline-none border-0 focus:border-primary border-b rounded-none"
               />
               {qty >= product.stock ? (
                 <Button

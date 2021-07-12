@@ -1,6 +1,6 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-import data from "./data.js";
 import dotenv from "dotenv";
 import Routes from "./router/index.js";
 
@@ -16,6 +16,7 @@ mongoose.connect(
   }
 );
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -8,7 +8,7 @@ const Route = express.Router();
 
 Route.use("/banner", banner);
 Route.use("/", product);
-Route.use("/user", user);
 Route.use("/trending", trending);
+Route.use("/user", user);
 
 export default Route;

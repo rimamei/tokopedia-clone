@@ -54,7 +54,7 @@ const Card = ({ item }) => {
         <div className="flex items-center">
           <Fa.FaStar className="text-lg text-yellow-500 mr-1" />
           <p className="text-gray-500">
-            {item.rating} | Terjual {item.terjual}
+            {item.rating} | Terjual {item.sold}
           </p>
         </div>
       </figcaption>

@@ -19,4 +19,4 @@ export { default as android } from 'assets/images/footer/google-play.svg';
 export { default as ios } from 'assets/images/footer/app-store.svg';
 export { default as animasiFooter } from 'assets/images/footer/animasi.jpg';
 export { default as ic_license } from 'assets/images/footer/ic-license.svg';
-export { default as signup } from 'assets/images/register/register_new.png';
+export { default as signupIll } from 'assets/images/register/register_new.png';
