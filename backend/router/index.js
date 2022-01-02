@@ -7,7 +7,7 @@ import trending from "./trending.js";
 const Route = express.Router();
 
 Route.use("/banner", banner);
-Route.use("/", product);
+Route.use("", product);
 Route.use("/trending", trending);
 Route.use("/user", user);
 
