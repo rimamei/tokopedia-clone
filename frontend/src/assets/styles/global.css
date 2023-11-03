@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.screen-margin {
+  @apply xxl:mx-xxl xl:mx-xl lg:mx-lg md:mx-md sm:mx-sm;
+}
+
+.screen-width {
+  @apply xxl:w-full xl:w-full lg:w-full md:w-lg sm:w-lg text-center;
+}
+
+.counter {
+  @apply p-2 rounded border-4 border-primary font-bold mx-2 sm:p-1 sm:border-2 sm:font-semibold;
+}
+
+.h4-footer {
+  @apply font-bold text-gray-800 text-base;
+}
+
+ul > li {
+  @apply mb-2;
+}
+
+ul > li > p {
+  @apply text-gray-400 cursor-pointer;
+}
+
+ul > li > p:hover {
+  @apply text-primary;
+}
+
+.hover-link {
+  @apply hover:text-primary;
+}
+
+.input {
+  @apply cursor-pointer w-full px-3 py-2 border rounded outline-none focus:outline-none focus:border-primary;
+}
+
+.danger {
+  @apply bg-red-200 text-red-500;
+}
+
+.footer-icon {
+  @apply p-3 rounded-full text-white mr-2 sm:m-1 md:m-2 lg:m-2;
+}
+
+.scrolling-touch {
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling-auto {
+  -webkit-overflow-scrolling: auto;
+}

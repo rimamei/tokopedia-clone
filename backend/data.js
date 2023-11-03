@@ -8,7 +8,7 @@ const data = {
       email: "rimameih@gmail.com",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: true,
-      verification: true
+      isVerified: true
     },
     {
       name: "Fifi",
@@ -16,7 +16,7 @@ const data = {
       email: "fifi123@gmail.com",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: false,
-      verification: true
+      isVerified: true
     },
   ],
   banner: [
@@ -297,7 +297,7 @@ const data = {
       city: "Jakarta Barat",
       name: "HEADSET | HEADPHONE | HANDSFREE | EARPHONE GAMING JETE-G1",
       categoryId: {
-        _id: "61d1c05c03f9f473db022bb3",
+        _id: "61d1c05c03f9f473db022bbc",
         // name: "Elektronik",
       },
       imageId: [
